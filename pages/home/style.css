@@ -1,0 +1,98 @@
+:root {
+    --background: #474747;
+    --light: #505050;
+    --semi-light: #464646;
+    --dark: #202020;
+    --accent: #a43333;
+}
+
+body {
+    position: absolute;
+    left: 0; top: 0;
+
+    width: 100vw;
+    height: 100vh;
+    margin: 0 0 0 0;
+
+    background-color: var(--background);
+}
+
+header {
+    position: fixed;
+    width: 100vw;
+    height: 5vh;
+    display: flex;
+    top: 0; left: 0;
+    
+    background-color: var(--dark);
+    
+    & div {
+        padding: 0 1% 0 1%;
+        align-self: center;
+    }
+
+    & .header-item {
+        height: 100%;
+    }
+
+    & .user-buttons {
+        float: right;
+        right: 10px;
+        height: 50%;
+        float: right;
+        margin-left: auto;
+
+        & .user-button {
+            font-size: 1rem;
+            height: 100%;
+            background-color: var(--semi-light);
+            border: none;   
+            color: #fff;
+        }
+    }
+
+    & .title {
+        font-size: 2rem;
+        vertical-align: middle;
+        
+        margin: 4px 4px 4px auto;
+        
+        height: 100%;
+        color: #fff;
+    }
+}
+
+
+.merriweather-heavy {
+    font-family: "Merriweather", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
+}
+
+
+.roboto-heavy {
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
+}
+
+.content {
+    /* position: fixed; */
+    height: 100vh;
+    width: 100vw;
+}
+
+.large {
+    font-size: 4rem;
+}
+
+.subscript {
+    font-size: 0.5rem;
+    color: var(--light);
+}

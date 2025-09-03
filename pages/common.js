@@ -2,3 +2,7 @@ window.getCookie = function (name) {
     var match = document.cookie.match(RegExp('(?:^|;\\s*)' + name + '=([^;]*)')); 
     return match ? match[1] : null;
 }
+
+window.goTo = function (place) {
+    window.location.pathname = place;
+}

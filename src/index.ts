@@ -1,6 +1,8 @@
 import {config} from '../bibliotek_config'
+import { Request } from './etc/types';
 import {serverFail} from './etc/misc'
 import * as http from 'http'
+import { url } from 'inspector';
 
 function containsRoute(a: Map<string, any>, b: string): boolean
 {
@@ -16,11 +18,14 @@ let server = http.createServer((req, res) => {
     // console.log("New connection asking for ", req.url!);
     if(req.method === 'GET')
     {
+        console.log("Requesting " + req.url!);
         try {
-            if(!containsRoute(config.routes, req.url!))
+            if(req.url!.startsWith('/api')) config.resourceHandler(req.url!, res);
+
+            else if(!containsRoute(config.routes, req.url!))
             { 
                 config.handlers['404'](res);
-                console.warn('404 for ', req.url!);
+                console.error('404 for ', req.url!);
             }
             else if(config.routes[req.url!] === undefined)
                 throw Error('Route does not implement server for ' + req.url!);
@@ -30,6 +35,8 @@ let server = http.createServer((req, res) => {
         {
             serverFail(res, err);
         }
+
+        res.end();
     }
 });
 

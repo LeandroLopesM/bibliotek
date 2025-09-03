@@ -6,6 +6,9 @@ export type BibliotekConfig = {
     routes: any,
     // handlers: Map<string, (Request) => Request>
     handlers: any,
+    
+    resourceHandler: any
+
     internalErr: string
 }
 
